@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Jailbrea.Kr</title>
+		<meta name="description" content="Jailbrea.Kr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/static/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/static/css/style-253.css" rel="stylesheet">
+		<style>.margin-bottom-10 { margin-bottom: 10px; }</style>
+	</head>
+	<body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-91178494-1', 'auto');
+  ga('send', 'pageview');
+</script>
+		<div class="ui-253">
+			<div class="container">
+				<center><h1>Jailbrea.Kr</h1></center><hr/>
+				<div class="block-content">
+					<div class="ui-bottom margin-bottom-10">
+						<h2 class="bg-black">TSS Status<span class="pull-right">{{ fetched_time }} | {{ model }}</span></h2>
+					</div>
+					<div class="ui-top bg-black">
+						<div class="row">
+{%- for firm in firmwares %}
+							<div class="col-sm-4 {% if loop.index0 == 0 %}hidden-xs{% else %}col-xs-6{% endif %}">
+								<div class="ui-item">
+	{%- if firm['signing'] %}
+									<span class="bg-green"><i class="fa fa-check-circle-o"></i>YES</span>
+	{%- else %}
+									<span class="bg-red"><i class="fa fa-times-circle-o"></i>NO</span>
+	{%- endif %}
+									<h3>{{ firm['version'] }}</h3>
+								</div>
+							</div>
+{%- endfor %}
+						</div>
+					</div>
+					<div class="ui-bottom">
+						<div class="block-list">
+							<h3>Links</h3>
+							<div class="row">
+								<div class="col-sm-6 margin-bottom-10">
+									<ul class="list-unstyled">
+										<li><i class="fa fa-link"></i> <a href="https://ipsw.me/">IPSW Downloads</a><div class="clearfix"></div></li>
+										<li><i class="fa fa-link"></i> <a href="https://canijailbreak.com/">Can I Jailbreak?</a><div class="clearfix"></div></li>
+									</ul>
+								</div>
+								<div class="col-sm-6">
+									<ul class="list-unstyled">
+										<li><i class="fa fa-link"></i> <a href="https://api.ineal.me/tss/status">TSS Status API</a><div class="clearfix"></div></li>
+										<li><i class="fa fa-link"></i> <a href="https://tsssaver.1conan.com/">TSS Saver</a><div class="clearfix"></div></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/respond.min.js"></script>
+		<script src="/static/js/html5shiv.js"></script>
+	</body>	
+</html>
