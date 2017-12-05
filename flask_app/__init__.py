@@ -1,3 +1,5 @@
+DEFAULT_MODEL = 'iPhone8,1'
+
 from flask import *
 app = Flask(__name__)
 
@@ -9,16 +11,13 @@ def tssstatus(model):
 
 @app.route('/')
 def index():
-	model = request.values.get('model', 'iPhone8,1')
+	model = request.values.get('model', DEFAULT_MODEL)
 	
 	firmwares = None
 	try: firmwares = tssstatus(model)
 	except: pass
-	
 	if firmwares == None:
-		try:
-			model = 'iPhone8,1'
-			firmwares = tssstatus(model)
+		try: firmwares = tssstatus(DEFAULT_MODEL)
 		except: pass
 	
 	import datetime

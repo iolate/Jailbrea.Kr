@@ -28,18 +28,29 @@
 					</div>
 					<div class="ui-top bg-black">
 						<div class="row">
-{%- for firm in firmwares %}
+{%- if firmwares %}
+	{%- for firm in firmwares %}
 							<div class="col-sm-4 {% if loop.index0 == 0 %}hidden-xs{% else %}col-xs-6{% endif %}">
 								<div class="ui-item">
-	{%- if firm['signing'] %}
+		{%- if firm['signing'] %}
 									<span class="bg-green"><i class="fa fa-check-circle-o"></i>YES</span>
-	{%- else %}
+		{%- else %}
 									<span class="bg-red"><i class="fa fa-times-circle-o"></i>NO</span>
-	{%- endif %}
+		{%- endif %}
 									<h3>{{ firm['version'] }}</h3>
 								</div>
 							</div>
-{%- endfor %}
+	{%- endfor %}
+{%- else %}
+	{%- for firm in range(3) %}
+							<div class="col-sm-4 {% if loop.index0 == 0 %}hidden-xs{% else %}col-xs-6{% endif %}">
+								<div class="ui-item">
+									<span class="bg-red"><i class="fa fa-times-circle-o"></i>Error</span>
+									<h3>Error</h3>
+								</div>
+							</div>
+	{%- endfor %}
+{%- endif %}
 						</div>
 					</div>
 					<div class="ui-bottom">
